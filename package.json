@@ -1,0 +1,21 @@
+{
+  "name": "reactjs-ts-omdb-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/lmourabraga/reactjs-ts-omdb-api.git",
+  "author": "Luã Braga <ldemourabraga@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "next": "^9.5.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "sass": "^1.26.10"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  }
+}
