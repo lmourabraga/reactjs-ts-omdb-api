@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import findMoviesRequest from '../store/modules/findMovies/actions';
+import { findMoviesRequest } from '../store/modules/findMovies/actions';
 
 import styles from '../styles/Home.module.sass'
 

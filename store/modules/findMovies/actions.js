@@ -1,4 +1,4 @@
-const findMoviesRequest = ({ movieTitle }) => {
+export function findMoviesRequest({ movieTitle }) {
     return {
         type: '@findMovies/FIND_MOVIES_REQUEST',
         payload: {
@@ -7,7 +7,7 @@ const findMoviesRequest = ({ movieTitle }) => {
     }
 }
 
-const findMoviesSuccess = ({ token }) => {
+export function findMoviesSuccess({ token }) {
     return {
         type: '@findMovies/FIND_MOVIES_SUCCESS',
         payload: {
@@ -15,5 +15,3 @@ const findMoviesSuccess = ({ token }) => {
         }
     }
 }
-
-export default findMoviesRequest;
