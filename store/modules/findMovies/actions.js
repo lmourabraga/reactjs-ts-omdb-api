@@ -15,3 +15,9 @@ export function findMoviesSuccess({ token }) {
         }
     }
 }
+
+export function findMoviesFailure() {
+    return {
+        type: '@findMovies/FIND_MOVIES_FAILURE'
+    }
+}
