@@ -1,4 +1,3 @@
-import findMovies from './findMovies/sagas';
 import { all } from 'redux-saga/effects';
 
 import findMovies from './findMovies/sagas';
