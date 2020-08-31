@@ -37,10 +37,21 @@ const Home: React.FC = () => {
                         return (
                             <div className={styles.movie} key={movie.imdbID}>
                                 <img src={movie.Poster} width="200" height="300" alt={movie.Title} />
-                                <div className={styles.movieInfo}>
-                                    <p>Título: {movie.Title}</p>
-                                    <p>Ano: {movie.Year}</p>
-                                    <p>Tipo: {movie.Type}</p>
+
+                                <div className={styles.tooltip}>
+                                    <div className={styles.info}>
+                                        <p>
+                                            <b>{movie.Type ? 'Filme:' : movie.type}</b>
+                                        </p>
+                                        <p>
+                                            {movie.Title}
+                                        </p>
+                                        <p>
+                                            <b>Ano: </b>
+                                            {movie.Year}</p>
+
+                                        <button>+ info</button>
+                                    </div>
                                 </div>
                             </div>
                         )

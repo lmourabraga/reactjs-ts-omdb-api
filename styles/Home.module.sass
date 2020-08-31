@@ -51,32 +51,82 @@
     justify-content: center
     position: absolute
     width: 100%
-    top: calc(50% - 300px)
+    top: calc(50% - 100px)
     flex-wrap: wrap
 
 .movie
     margin: 5px
     position: relative
+    display: inline-block
     height: 300px
     width: 200px
 
-    .movieInfo
-        position: absolute
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
-        padding: 10px
-        background: rgba(0, 0, 0, 0.8)
-        color: #fff
-        visibility: hidden
-        opacity: 0
-        transition: opacity .2s, visibility .2s
-        cursor: pointer
-    
-        p
-            margin: 20px
+    > img
+        border-radius: 10px
 
-.movie:hover .movieInfo 
-  visibility: visible
-  opacity: 1
+    .tooltip
+        position: absolute
+        top: -220px
+        width: calc(100% - 40px)
+        min-height: 155px
+        padding: 20px
+        background-color: rgba(0, 0, 0, 0.8)
+        color: #fff
+        border-radius: 6px
+        text-align: center
+        visibility: hidden
+        z-index: 1
+        transition: 0.2s
+        opacity: 0
+
+        > .info
+            display: flex
+            justify-content: space-between
+            flex-direction: column
+            align-content: space-between
+
+            > p:first-child
+                margin-bottom: 0px
+
+            > p
+                font-size: 12px
+                margin-bottom: 5px
+                line-height: 12px
+                line-height: 1.4rem
+                text-align: left
+                margin-bottom: 10px
+                letter-spacing: 0.1rem
+
+                > b
+                    text-transform: uppercase
+
+            > button
+                width: 100%
+                background-color: rgba(255,255,255, 1)
+                padding: 5px 10px
+                border-radius: 5px
+                font-size: 12px
+                border: unset
+                color: #000
+                transition: 0.2s
+            
+            > button:hover
+                background-color: rgba(255,255,255, 0.5)
+
+            
+    .tooltip:after 
+        content: ""
+        position: absolute
+        top: 100%
+        left: 50%
+        margin-left: -15px
+        border-width: 15px
+        border-style: solid
+        border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent
+
+
+.movie:hover .tooltip
+    visibility: visible
+    opacity: 1
+
+    
