@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { StoreState } from '../store/createStore';
 import { findMoviesRequest } from '../store/modules/findMovies/actions';
 
+import List from '../components/list';
+
 import styles from '../styles/Home.module.sass'
 
 const Home: React.FC = () => {
@@ -34,6 +36,8 @@ const Home: React.FC = () => {
                     <button className={styles.button} type="submit">{loadingFindMoviesRequest ? 'Carregando...' : 'Buscar'}</button>
                 </form>
             </div>
+
+            {apiConnection ? <List /> : 'apiConnection is false'}
         </>
     );
 }

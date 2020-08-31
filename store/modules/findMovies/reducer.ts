@@ -4,7 +4,7 @@ const initialState = {
     loadingFindMoviesRequest: false,
     apiConnection: false,
     error: false,
-    results: null
+    results: null,
 }
 
 export default function findMovies(
