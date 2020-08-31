@@ -5,7 +5,7 @@ export type FindMoviesAction = ActionType<typeof actions>;
 
 export interface FindMoviesState {
     readonly loadingFindMoviesRequest: boolean;
-    readonly apiConnection: boolean;
     readonly error: boolean;
+    readonly message: string;
     readonly results: [] | null;
 }

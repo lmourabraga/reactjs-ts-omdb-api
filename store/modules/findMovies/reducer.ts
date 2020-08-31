@@ -2,8 +2,8 @@ import { FindMoviesState, FindMoviesAction } from './types';
 
 const initialState = {
     loadingFindMoviesRequest: false,
-    apiConnection: false,
     error: false,
+    message: '',
     results: null,
 }
 
@@ -21,13 +21,13 @@ export default function findMovies(
             return {
                 ...state,
                 loadingFindMoviesRequest: false,
-                apiConnection: true,
                 results: action.payload.results,
             };
         case '@findMovies/FIND_MOVIES_FAILURE':
             return {
                 ...state,
                 error: true,
+                message: action.payload.message,
             };
         default:
             return state;

@@ -10,22 +10,18 @@ import styles from '../styles/Home.module.sass'
 
 const Home: React.FC = () => {
 
-    const { loadingFindMoviesRequest, apiConnection, results, error } = useSelector((state: StoreState) => state.findMovies);
+    const { loadingFindMoviesRequest, results, error, message } = useSelector((state: StoreState) => state.findMovies);
     const dispatch = useDispatch();
-
-    console.log('LOADING: ', loadingFindMoviesRequest);
-    console.log('API: ', apiConnection)
-    console.log('Results: ', results)
-    console.log('ERROR: ', error);
 
     const [submitAnimate, setSubmitAnimate] = useState(false);
 
-    const [typedValue, setTypedValue] = useState(null);
+    const [typedValue, setTypedValue] = useState('');
 
     const handleSubmit = e => {
         e.preventDefault();
         setSubmitAnimate(true);
         dispatch(findMoviesRequest({ title: typedValue }));
+        setTypedValue('');
     }
 
     return (
@@ -35,9 +31,26 @@ const Home: React.FC = () => {
                     <input className={styles.input} placeholder="Procure seu Filme" type="text" required onChange={(input) => setTypedValue(input.target.value)} />
                     <button className={styles.button} type="submit">{loadingFindMoviesRequest ? 'Carregando...' : 'Buscar'}</button>
                 </form>
-            </div>
 
-            {apiConnection ? <List /> : 'apiConnection is false'}
+                {results && <div className={styles.containerResults}>
+                    {results.map(movie => {
+                        return (
+                            <div className={styles.movie} key={movie.imdbID}>
+                                <img src={movie.Poster} width="200" height="300" alt={movie.Title} />
+                                <div className={styles.movieInfo}>
+                                    <p>Título: {movie.Title}</p>
+                                    <p>Ano: {movie.Year}</p>
+                                    <p>Tipo: {movie.Type}</p>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>}
+
+                {error && <div>
+                    <h1>{message}</h1>
+                </div>}
+            </div>
         </>
     );
 }

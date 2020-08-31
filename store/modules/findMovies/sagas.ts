@@ -10,9 +10,15 @@ export function* findMovies({ payload }: ActionType<typeof actions.findMoviesReq
 
         const { data } = yield call(api.get, title);
 
+        if (data.Error) {
+            yield put(actions.findMoviesFailure({ error: true, message: 'Filme não encontrado.' }));
+        }else{
+            yield put(actions.findMoviesFailure({ error: false, message: '' }));
+        }
+
         yield put(actions.findMoviesSuccess({ results: data.Search }));
     } catch (error) {
-        yield put(actions.findMoviesFailure());
+        yield put(actions.findMoviesFailure({ error: true, message: 'Falha na conexão.' }));
     }
 }
 

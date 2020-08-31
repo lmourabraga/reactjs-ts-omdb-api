@@ -16,6 +16,9 @@ export function findMoviesSuccess({ results }: { results: [] }) {
     });
 }
 
-export function findMoviesFailure() {
-    return action('@findMovies/FIND_MOVIES_FAILURE');
+export function findMoviesFailure({ error, message }: { error: boolean, message: string }) {
+    return action('@findMovies/FIND_MOVIES_FAILURE', {
+        error,
+        message,
+    });
 }
