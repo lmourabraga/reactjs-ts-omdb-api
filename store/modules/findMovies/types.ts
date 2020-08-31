@@ -8,4 +8,5 @@ export interface FindMoviesState {
     readonly error: boolean;
     readonly message: string;
     readonly results: [] | null;
+    readonly total: number;
 }

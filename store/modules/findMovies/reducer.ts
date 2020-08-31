@@ -5,6 +5,7 @@ const initialState = {
     error: false,
     message: '',
     results: null,
+    total: 0,
 }
 
 export default function findMovies(
@@ -21,7 +22,9 @@ export default function findMovies(
             return {
                 ...state,
                 loadingFindMoviesRequest: false,
+                // results: [...state.results, action.payload.results], 
                 results: action.payload.results,
+                total: action.payload.total,
             };
         case '@findMovies/FIND_MOVIES_FAILURE':
             return {

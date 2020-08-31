@@ -4,29 +4,39 @@ import { useSelector, useDispatch } from 'react-redux';
 import { StoreState } from '../store/createStore';
 import { findMoviesRequest } from '../store/modules/findMovies/actions';
 
-import List from '../components/list';
-
 import styles from '../styles/Home.module.sass'
 
 const Home: React.FC = () => {
 
     const { loadingFindMoviesRequest, results, error, message } = useSelector((state: StoreState) => state.findMovies);
+
+
     const dispatch = useDispatch();
 
     const [submitAnimate, setSubmitAnimate] = useState(false);
 
     const [typedValue, setTypedValue] = useState('');
 
+    const [page, setPage] = useState(1);
+
     const handleSubmit = e => {
         e.preventDefault();
         setSubmitAnimate(true);
-        dispatch(findMoviesRequest({ title: typedValue }));
+        dispatch(findMoviesRequest({
+            title: typedValue,
+            page
+        }));
+
         setTypedValue('');
+    }
+
+    const handleInfinityScroll = () => {
+        console.log('funcionou');
     }
 
     return (
         <>
-            <div className={submitAnimate ? `${styles.container} ${styles.containerAnimated}` : styles.container}>
+            <div className={submitAnimate ? `${styles.container} ${styles.containerAnimated}` : styles.container} onScroll={(handleInfinityScroll)}>
                 <form className={submitAnimate ? `${styles.flexForm} ${styles.flexFormAnimated}` : styles.flexForm} onSubmit={(handleSubmit)}>
                     <input className={styles.input} placeholder="Procure seu Filme" type="text" required onChange={(input) => setTypedValue(input.target.value)} />
                     <button className={styles.button} type="submit">{loadingFindMoviesRequest ? 'Carregando...' : 'Buscar'}</button>
@@ -36,12 +46,12 @@ const Home: React.FC = () => {
                     {results.map(movie => {
                         return (
                             <div className={styles.movie} key={movie.imdbID}>
-                                <img src={movie.Poster} width="200" height="300" alt={movie.Title} />
+                                <img src={movie.Poster} alt={movie.Title} />
 
                                 <div className={styles.tooltip}>
                                     <div className={styles.info}>
                                         <p>
-                                            <b>{movie.Type ? 'Filme:' : movie.type}</b>
+                                            <b>{movie.Type ? 'Filme:' : movie.Type}</b>
                                         </p>
                                         <p>
                                             {movie.Title}
