@@ -9,7 +9,7 @@ export function* findMovies({ payload }: ActionType<typeof actions.findMoviesReq
         const title = payload.title;
         const page = payload.page;
 
-        const { data } = yield call(api.get, `${title}&page=${page}`);
+        const { data } = yield call(api.get, `?apikey=1eda9dfa&type=movie&s=${title}&page=${page}`);
 
         if (data.Error) {
             yield put(actions.findMoviesFailure({ error: true, message: 'Filme não encontrado.' }));

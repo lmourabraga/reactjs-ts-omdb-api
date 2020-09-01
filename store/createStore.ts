@@ -1,11 +1,14 @@
 import { createStore, applyMiddleware, Middleware, Reducer } from 'redux';
 import { FindMoviesAction, FindMoviesState } from './modules/findMovies/types';
+import { InfoMovieAction, InfoMovieState } from './modules/infoMovie/types';
 
 export interface StoreState {
     findMovies: FindMoviesState;
+    infoMovie: InfoMovieState;
 }
 
-export type StoreAction = FindMoviesAction;
+// export type StoreAction = FindMoviesAction;
+export type StoreAction = [FindMoviesAction, InfoMovieAction];
 
 export default (
     reducers: Reducer<StoreState, StoreAction>,
