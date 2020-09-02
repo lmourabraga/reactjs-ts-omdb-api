@@ -1,31 +1,21 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { StoreState } from '../store/createStore';
 
-import { infoMovieRequest } from '../store/modules/infoMovie/actions';
+import Link from 'next/link';
 
 import styles from '../styles/List.module.sass';
 
 const List: React.FC = () => {
 
     const { results, error, message } = useSelector((state: StoreState) => state.findMovies);
-    const { info } = useSelector((state: StoreState) => state.infoMovie);
 
-    const dispatch = useDispatch();
-
-    const handleMovie = (id) => {
-        dispatch(infoMovieRequest({
-            movieId: id,
-        }));
-    }
-
-    console.log(info)
 
     return (
         <div className={styles.containerResults}>
             {results.map(movie => {
 
-                const id = movie.imdbID
+                const id = movie.imdbID;
 
                 return (
                     <div className={styles.movie} key={id}>
@@ -43,7 +33,9 @@ const List: React.FC = () => {
                                     <b>Ano: </b>
                                     {movie.Year}</p>
 
-                                <button onClick={() => handleMovie(id)}>+ info</button>
+                                <Link href={`/movie?id=${id}`}>
+                                    <button>+ info</button>
+                                </Link>
                             </div>
                         </div>
                     </div>
