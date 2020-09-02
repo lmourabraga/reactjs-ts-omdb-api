@@ -34,10 +34,13 @@ const Home: React.FC = () => {
     return (
         <>
             <div className={submitAnimate ? `${styles.container} ${styles.containerAnimated}` : styles.container}>
-                <form className={submitAnimate ? `${styles.flexForm} ${styles.flexFormAnimated}` : styles.flexForm} onSubmit={(handleSubmit)}>
-                    <input className={styles.input} placeholder="Procure seu Filme" type="text" required onChange={(input) => setTypedValue(input.target.value)} />
-                    <button className={styles.button} type="submit">{loadingFindMoviesRequest ? 'Carregando...' : 'Buscar'}</button>
-                </form>
+                <div>
+                    <img src="/images/logo.png" width="120" alt="Logo" />
+                    <form className={submitAnimate ? `${styles.flexForm} ${styles.flexFormAnimated}` : styles.flexForm} onSubmit={(handleSubmit)}>
+                        <input className={styles.input} placeholder="Procure seu Filme" type="text" required onChange={(input) => setTypedValue(input.target.value)} />
+                        <button className={styles.button} type="submit">{loadingFindMoviesRequest ? 'Carregando...' : 'Buscar'}</button>
+                    </form>
+                </div>
 
                 {results && <List />}
             </div>
