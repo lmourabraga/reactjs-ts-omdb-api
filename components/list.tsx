@@ -8,8 +8,7 @@ import styles from '../styles/List.module.sass';
 
 const List: React.FC = () => {
 
-    const { results, error, message } = useSelector((state: StoreState) => state.findMovies);
-
+    const { results } = useSelector((state: StoreState) => state.findMovies);
 
     return (
         <div className={styles.containerResults}>
@@ -41,11 +40,6 @@ const List: React.FC = () => {
                     </div>
                 )
             })}
-            {
-                error && <div>
-                    <h1>{message}</h1>
-                </div>
-            }
         </div >
     );
 }

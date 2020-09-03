@@ -1,10 +1,20 @@
+@keyframes fade
+  from
+    opacity: 0
+
+  to
+    opacity: 1
+
 .container
+    animation-name: fade
+    animation-duration: 1s
     display: flex
     justify-content: center
     align-items: center
-    height: 100vh
+    min-height: 100vh
+    height: 100%
 
-.card
+.card   
     display: flex
     align-items: center
     justify-content: center
@@ -12,38 +22,80 @@
     width: 100%
     max-width: 900px
     height: 100%
-    max-height: 500px
     background-color: rgba(0,0,0, 0.6)
     padding: 50px
     border-radius: 10px
 
+    .header
+        display: flex
+        align-items: center    
+        justify-content: space-between
+        margin-bottom: 10px
+        width: 100%
+
+        > h2
+            text-transform: uppercase
+
+        > .iconLink svg
+            color: #c6c6c6
+            font-size: 32px
+            transition: 0.2s
+
+        > .iconLink:hover svg
+            color: #fff
+    
+
     .mainInfo
         display: flex
-        align-items: center
-        justify-content: center
+        justify-content: flex-start
         height: 100%
-        max-height: 500px
+        flex-wrap: wrap
 
         img
-            margin-right: 20px
+            margin: 0 20px 20px 0
+            transition: 0.2s
+        
+        img:hover
+            opacity: 0.8
 
         .info
             display: flex
             flex-direction: column
-            justify-content: space-between
             max-height: 440px
             height: 100%
+            flex: 1
+
 
         h1
             color: #fff
-
-        p.plot
-            font-size: 16px
+            font-size: max(24px, 1.7vw)
 
         span.featuredInfo
             font-weight: 500
             color: #fff
 
         p
+            font-size: max(14px, 0.82vw)
             padding: 5px 0
             color: #c6c6c6
+    
+    .footer
+        display: flex
+        justify-content: space-around    
+        width: 100%
+        margin: 20px 0 0
+
+        span.featuredInfo
+            font-weight: 500
+            color: #fff
+
+        p
+            padding: 10px
+            border-radius: 10px
+            margin-right: 10px
+            color: #c6c6c6
+            cursor: default
+            background-color: rgba(255,255,255,0.3)
+
+        p:hover
+            background-color: rgba(234, 176, 8, 0.5)

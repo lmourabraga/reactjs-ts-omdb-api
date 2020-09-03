@@ -12,14 +12,14 @@ export function* findMovies({ payload }: ActionType<typeof actions.findMoviesReq
         const { data } = yield call(api.get, `?apikey=1eda9dfa&type=movie&s=${title}&page=${page}`);
 
         if (data.Error) {
-            yield put(actions.findMoviesFailure({ error: true, message: 'Filme não encontrado.' }));
+            yield put(actions.findMoviesFailure({ error: true, message: 'The movie was not found.' }));
         } else {
             yield put(actions.findMoviesFailure({ error: false, message: '' }));
         }
 
         yield put(actions.findMoviesSuccess({ results: data.Search, total: parseInt(data.totalResults) }));
     } catch (error) {
-        yield put(actions.findMoviesFailure({ error: true, message: 'Falha na conexão.' }));
+        yield put(actions.findMoviesFailure({ error: true, message: 'The API connection has failed.' }));
     }
 }
 

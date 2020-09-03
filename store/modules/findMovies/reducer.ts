@@ -22,7 +22,7 @@ export default function findMovies(
             return {
                 ...state,
                 loadingFindMoviesRequest: false,
-                // results: [...state.results, action.payload.results], 
+                error: false,
                 results: action.payload.results,
                 total: action.payload.total,
             };

@@ -10,7 +10,7 @@ import styles from '../styles/Home.module.sass'
 
 const Home: React.FC = () => {
 
-    const { loadingFindMoviesRequest, results } = useSelector((state: StoreState) => state.findMovies);
+    const { loadingFindMoviesRequest, results, message } = useSelector((state: StoreState) => state.findMovies);
 
     const dispatch = useDispatch();
 
@@ -33,16 +33,24 @@ const Home: React.FC = () => {
 
     return (
         <>
-            <div className={submitAnimate ? `${styles.container} ${styles.containerAnimated}` : styles.container}>
-                <div>
-                    <img src="/images/logo.png" width="120" alt="Logo" />
-                    <form className={submitAnimate ? `${styles.flexForm} ${styles.flexFormAnimated}` : styles.flexForm} onSubmit={(handleSubmit)}>
-                        <input className={styles.input} placeholder="Procure seu Filme" type="text" required onChange={(input) => setTypedValue(input.target.value)} />
-                        <button className={styles.button} type="submit">{loadingFindMoviesRequest ? 'Carregando...' : 'Buscar'}</button>
-                    </form>
-                </div>
+            <div className={styles.container}>
+
+                <form className={submitAnimate || results ? `${styles.flexForm} ${styles.flexFormAnimated}` : styles.flexForm} onSubmit={(handleSubmit)}>
+                    <img src="/images/logo.png" width="120" alt="Logo" title="Open Movie" />
+
+                    <div className={styles.search}>
+                        <input className={styles.input} placeholder="Find your movie" type="text" required onChange={(input) => setTypedValue(input.target.value)} />
+                        <button className={styles.button} type="submit">{loadingFindMoviesRequest ? 'Loading...' : 'Search'}</button>
+                    </div>
+                </form>
 
                 {results && <List />}
+
+                {message && (
+                    <div className={styles.failedMessage}>
+                        <h1>{message}</h1>
+                    </div>
+                )}
             </div>
         </>
     );

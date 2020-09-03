@@ -1,36 +1,48 @@
+@keyframes fade
+  from
+    opacity: 0
+
+  to
+    opacity: 1
+
+    
 .containerResults
+    animation-name: fade
+    animation-duration: 1s
     display: flex
     justify-content: flex-start
     position: absolute
     width: 100%
-    max-width: 1560px
-    top: calc(50% - 100px)
+    max-width: 1200px
+    top: 50%
     flex-flow: wrap
 
 .movie
     position: relative
     display: inline-block
-    width: 240px
-    height: 340px
+    width: 180px
+    height: 280px
     margin: 10px
 
     > img
         border-radius: 10px
         width: 100%
         height: 100%
-        max-width: 240px
-        max-height: 340px
         transition: 0.6s
+
+    > img:hover
+        opacity: 0.6
 
     .tooltip
         display: flex
         position: absolute
         top: -250px
-        width: calc(100% - 40px)
+        width: 100%
+        left: -20px
         min-height: 155px
         color: #c6c6c6
         padding: 20px
-        background-color: rgba(0, 0, 0, 0.6)
+        background-color: rgba(0, 0, 0, 0.8)
         border-radius: 10px
         text-align: center
         visibility: hidden
@@ -91,24 +103,7 @@
     position: relative
     z-index: 1
 
-@media (max-width: 1970px)
-.containerResults
-    width: 1200px
-    top: 50%
+@media (max-width: 1255px)
 
-.movie
-    width: 180px
-    height: 280px
-
-    > img
-        max-width: 180px
-        max-height: 280px
-
-.containerResults
-    top: 35%
-    width: auto
-    justify-content: center
-
-.tooltip
-    width: 100%!important
-    left: -20px
+    .containerResults
+        justify-content: center
