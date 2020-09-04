@@ -1,5 +1,7 @@
 # Interface de busca usando a API OMDB
 
+![Gif of version 1.0](https://github.com/lmourabraga/reactjs-ts-omdb-api/blob/master/public/images/version-1.gif?raw=true)
+
 Esse repositório foi desenvolvido utilizando as tecnologias:
 
 *  TypeScript
