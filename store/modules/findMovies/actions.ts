@@ -13,8 +13,20 @@ export function findMoviesRequest({
     });
 }
 
-export function findMoviesSuccess({ results, total }: { results: [], total: number }) {
+export function findMoviesSuccess({ 
+    title, 
+    page, 
+    results, 
+    total 
+}: { 
+    title: string, 
+    page: number, 
+    results: [], 
+    total: number 
+}) {
     return action('@findMovies/FIND_MOVIES_SUCCESS', {
+        title,
+        page,
         results,
         total,
     });

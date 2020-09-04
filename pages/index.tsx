@@ -18,14 +18,12 @@ const Home: React.FC = () => {
 
     const [typedValue, setTypedValue] = useState('');
 
-    const [page, setPage] = useState(1);
-
     const handleSubmit = e => {
         e.preventDefault();
         setSubmitAnimate(true);
         dispatch(findMoviesRequest({
             title: typedValue,
-            page
+            page: 1
         }));
 
         setTypedValue('');

@@ -7,6 +7,8 @@ export interface FindMoviesState {
     readonly loadingFindMoviesRequest: boolean;
     readonly error: boolean;
     readonly message: string;
+    readonly title: string;
+    readonly page: number;
     readonly results: [] | null;
     readonly total: number;
 }

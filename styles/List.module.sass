@@ -5,23 +5,50 @@
   to
     opacity: 1
 
-    
-.containerResults
+.container
     animation-name: fade
     animation-duration: 1s
     display: flex
-    justify-content: flex-start
-    position: absolute
+    justify-content: center
     width: 100%
-    max-width: 1200px
+    
+.containerResults
+    display: flex
+    justify-content: center
+    position: absolute
+    max-width: 900px
+    width: 100%
     top: 50%
     flex-flow: wrap
+   
+
+.controllers
+
+    button
+        position: absolute
+        top: 44%
+        background: none
+        border: none
+
+    .previousPage
+        left: -8%
+
+    .nextPage
+        right: -8%
+
+    svg
+        font-size: max(24px, 4vw)
+        color: rgba(6, 230, 192)
+        transition: 0.2s
+
+    svg:hover
+        color: rgba(6, 230, 192, 0.4)
 
 .movie
     position: relative
     display: inline-block
-    width: 180px
-    height: 280px
+    width: 160px
+    height: 260px
     margin: 10px
 
     > img
@@ -103,7 +130,37 @@
     position: relative
     z-index: 1
 
-@media (max-width: 1255px)
+@media (max-width: 1369px)
 
     .containerResults
-        justify-content: center
+        top: 65%
+
+    .previousPage
+        left: -6%!important
+
+    .nextPage
+        right: -6%!important
+
+@media (min-width: 1370px)
+
+    .containerResults
+        top: 45%
+
+@media (max-width: 960px)
+
+    .containerResults
+        top: 55%!important
+
+    .controllers
+        button
+            position: fixed!important
+            top: 60%
+        
+            svg
+                font-size: 46px
+
+    .previousPage
+        left: 6%!important
+
+    .nextPage
+        right: 6%!important

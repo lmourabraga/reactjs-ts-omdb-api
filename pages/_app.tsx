@@ -10,7 +10,8 @@ function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <Head>
-        <title>OMDB Movie Search</title>
+        <link rel="shortcut icon" href="./images/fav.png" />
+        <title>B2W Digital - OMDB API</title>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
       </Head>
       <Component {...pageProps} />

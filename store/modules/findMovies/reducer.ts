@@ -6,6 +6,8 @@ const initialState = {
     message: '',
     results: null,
     total: 0,
+    title: '',
+    page: 1,
 }
 
 export default function findMovies(
@@ -23,6 +25,8 @@ export default function findMovies(
                 ...state,
                 loadingFindMoviesRequest: false,
                 error: false,
+                title: action.payload.title,
+                page: action.payload.page,
                 results: action.payload.results,
                 total: action.payload.total,
             };

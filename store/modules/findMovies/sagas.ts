@@ -17,7 +17,12 @@ export function* findMovies({ payload }: ActionType<typeof actions.findMoviesReq
             yield put(actions.findMoviesFailure({ error: false, message: '' }));
         }
 
-        yield put(actions.findMoviesSuccess({ results: data.Search, total: parseInt(data.totalResults) }));
+        yield put(actions.findMoviesSuccess({ 
+            title: title,
+            page: page,
+            results: data.Search, 
+            total: parseInt(data.totalResults) 
+        }));
     } catch (error) {
         yield put(actions.findMoviesFailure({ error: true, message: 'The API connection has failed.' }));
     }
