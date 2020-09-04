@@ -20,7 +20,6 @@ export default function findMovies(
             return {
                 ...state,
                 loadingInfoMovieRequest: false,
-                // results: [...state.results, action.payload.results], 
                 info: action.payload.info,
             };
         case '@infoMovie/INFO_MOVIE_FAILURE':

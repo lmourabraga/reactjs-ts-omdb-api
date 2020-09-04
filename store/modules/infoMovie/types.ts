@@ -26,5 +26,5 @@ interface infoMovieProps {
 export interface InfoMovieState {
     readonly loadingInfoMovieRequest: boolean;
     readonly error: boolean;
-    readonly info: infoMovieProps | null;
+    readonly info: infoMovieProps | any;
 }
