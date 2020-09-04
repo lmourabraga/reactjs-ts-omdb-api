@@ -7,8 +7,7 @@ export interface StoreState {
     infoMovie: InfoMovieState;
 }
 
-// export type StoreAction = FindMoviesAction;
-export type StoreAction = [FindMoviesAction, InfoMovieAction];
+export type StoreAction = [FindMoviesAction, InfoMovieAction] | any;
 
 export default (
     reducers: Reducer<StoreState, StoreAction>,
