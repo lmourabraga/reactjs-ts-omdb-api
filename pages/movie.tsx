@@ -22,8 +22,6 @@ const Movie = ({ id }) => {
         }));
     }, []);
 
-    console.log(info)
-
     return (
         <div className={styles.container}>
             <div className={styles.card}>

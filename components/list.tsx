@@ -9,6 +9,14 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 import styles from '../styles/List.module.sass';
 
+interface ApiResponse{
+    imdbID: string;
+    Poster: string;
+    Title: string;
+    Type: string;
+    Year: string;
+}
+
 const List: React.FC = () => {
 
     const { title, page, results } = useSelector((state: StoreState) => state.findMovies);
@@ -47,7 +55,7 @@ const List: React.FC = () => {
         <div className={styles.container}>
 
             <div className={styles.containerResults}>
-                {results.map(movie => {
+                {results.map((movie:ApiResponse) => {
 
                     const id = movie.imdbID;
 
